@@ -34,12 +34,3 @@ def n_point_double_integral(f, a, b, c, d, n=2):
         sum += cs[i] * inner_f(h(xs[i])) * ((b-a) / 2)
     return sum
 
-
-def f(x, y):
-    return x**2 + y**2
-
-
-# 484
-print(n_point_double_integral(f, 3, 9, 0, 2))
-# 8/3
-print(n_point_double_integral(f, -1, 1, -1, 1))
