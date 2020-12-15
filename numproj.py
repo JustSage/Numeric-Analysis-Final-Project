@@ -2,7 +2,7 @@ import numpy
 
 
 def n_point_double_integral(f, a, b, c, d, n=2):
-    """double integral using two-point gauss method
+    """double integral using n-point gauss method
     
     integral between -1 and 1 of f(x) = w0*f(x0) + w1*f(x1)
     
@@ -15,8 +15,8 @@ def n_point_double_integral(f, a, b, c, d, n=2):
     :return:        The value of the integral
     """
     # change the x and y values to fit an integral between -1 and 1
-    g = lambda x: (d+c)/2 + ((d-c)/2)*x
-    h = lambda y: (b+a)/2 + ((b-a)/2)*y
+    g = lambda x: (d+c)/2+((d-c)/2)*x
+    h = lambda y: (b+a)/2+((b-a)/2)*y
     
     # the legendre weights and values
     xs, cs = numpy.polynomial.legendre.leggauss(n)
