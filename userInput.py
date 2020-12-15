@@ -65,7 +65,7 @@ def read_polynomial():
     :return:            a function that returns the value of the polynomial for
 the given x and y values.
     """
-    num = read_int("Enter the number of blocks in the function:")
+    num = read_int("Enter the number of constants in the function:")
     a = []
     x_deg = []
     y_deg = []
