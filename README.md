@@ -7,6 +7,10 @@ This is some simple code for calculating an approximation of a double integral u
 The Numpy library, install via command line:
 
   `python -m pip install numpy`
+  
+The Sympy library, install via command line:
+
+  `python -m pip install sympy`
 
 ## How to use
 
