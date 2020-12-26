@@ -1,6 +1,7 @@
 from numproj import n_point_double_integral
-from userInput import read_polynomial, read_float, read_func
-from math import ceil
+from userInput import read_float, read_func
+# from userInput import read_polynomial
+# from math import ceil
 
 
 if __name__ == "__main__":
