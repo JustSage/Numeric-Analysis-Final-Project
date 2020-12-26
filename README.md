@@ -13,15 +13,11 @@ The Numpy library, install via command line:
 To start the code, either run main.py from the command line using python, or open a project in your IDE of choice and run from it.
 The input requested is as follows:
 
-1. The number of constants in the polynomia.
-2. For each constant:
-    1. The constant
-    2. The degree of the x variable
-    3. The degree of the y variable
-3. The lower bound of the y axis to integrate in
-4. The upper bound of the y axis to integrate in
-5. The lower bound of the x axis to integrate in
-6. The upper bound of the x axis to integrate in
+1. The function written in python syntax, as you would in actual python code. When using functions from the math library, use them as is without the `math.` before the function name.
+2. The lower bound of the y axis to integrate in
+3. The upper bound of the y axis to integrate in
+4. The lower bound of the x axis to integrate in
+5. The upper bound of the x axis to integrate in
 
 After all of the input is given, you will receive the approximation of the integral.
 
