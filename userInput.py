@@ -1,9 +1,26 @@
+from sympy import *
+
+
 max_attempts = 10
 pre_prompt = ">> "
 
 
+def read_func():
+    """Reads a mathematical function with an x variable from the user.
+    :return:                The function
+    """
+    input_string = input(pre_prompt + "Enter a function using python syntax:\n>> ")
+    expr = sympify(input_string)
+    x = var('x')
+    y = var('y')
+    return lambda a, b: expr.subs(x, a).subs(y, b)
+
+
+# unused stuff that I will not remove, because reasons
+
+
 class Polynomial:
-    """A polynomial with two """
+    """A polynomial with two variables"""
 
     def __init__(self, cons, x_deg, y_deg):
         """Constructor.
