@@ -22,6 +22,7 @@ The input requested is as follows:
 3. The upper bound of the y axis to integrate in
 4. The lower bound of the x axis to integrate in
 5. The upper bound of the x axis to integrate in
+6. The number of points to use in the method.
 
 After all of the input is given, you will receive the approximation of the integral.
 
