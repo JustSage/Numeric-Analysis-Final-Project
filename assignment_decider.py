@@ -6,9 +6,10 @@ code to decide which questions to pick based on the id numbers of the participan
 
 ids = {
     "Nikolay": 321123242,
-    "Sagi": 205591829,
-    "Alex": 317414506
-}
+    "Sagie": 205591829,
+    "Alex": 317414506,
+    "Avi": 203397666
+    }
 
 options = (9, 8, 12, 6, 6)
 
