@@ -30,7 +30,7 @@ def make_decisions(all_options):
               decide(all_options[5]) + options[0] + options[1] + options[2] + options[4]]
 
     while result[3] == result[2]:
-        result[3] = decide(all_options[3])
+        result[3] = decide(all_options[3]) + options[0] + options[1]
 
     return result
 
