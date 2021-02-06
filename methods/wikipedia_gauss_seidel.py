@@ -1,5 +1,5 @@
 import numpy as np
-from dominant_matrix import dominantify
+from methods.dominant_matrix import dominantify
 
 ITERATION_LIMIT = 1000
 

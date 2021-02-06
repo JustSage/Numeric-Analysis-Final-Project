@@ -5,7 +5,7 @@
 """
 
 import numpy as np
-from wikipedia_gauss_seidel import gauss_seidel
+from methods.wikipedia_gauss_seidel import gauss_seidel
 from math import pi
 
 
