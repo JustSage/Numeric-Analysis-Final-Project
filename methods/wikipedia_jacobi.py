@@ -7,9 +7,10 @@ def jacobi(A, b, x_init=None, epsilon=1e-10, max_iterations=500):
         return None
     if x_init is None:
         x_init = np.zeros(len(b))
-    # print the dominant matrix and results
-    print("dominant matrix:\n", A)
-    print("dominant matrix results:", b)
+    print("System of equations:")
+    for i in range(A.shape[0]):
+        row = ["{0:3g}*x{1}".format(A[i, j], j + 1) for j in range(A.shape[1])]
+        print("[{0}] = [{1:3g}]".format(" + ".join(row), b[i]))
 
     D = np.diag(np.diag(A))
     LU = A - D
