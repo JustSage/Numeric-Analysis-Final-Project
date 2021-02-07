@@ -2,9 +2,11 @@ import numpy as np
 from methods.dominant_matrix import dominantify
 
 
-def jacobi(A, b, x_init, epsilon=1e-10, max_iterations=500):
+def jacobi(A, b, x_init=None, epsilon=1e-10, max_iterations=500):
     if not dominantify(A, b):
         return None
+    if x_init is None:
+        x_init = np.zeros(len(b))
     # print the dominant matrix and results
     print("dominant matrix:\n", A)
     print("dominant matrix results:", b)
@@ -27,16 +29,11 @@ def jacobi(A, b, x_init, epsilon=1e-10, max_iterations=500):
 
 if __name__ == "__main__":
     # problem data
-    A = np.array([
-        [-1., -2., 5.],
-        [4., -1., 1.],
-        [1., 6., 2.]
-    ])
-    b = np.array([2., 4., 9.])
+    A = np.array([[0, 1., 2.], [-2., 1., 0.5], [1., -2., -0.5]])
+    b = np.array([0., 4., -4.])
 
     # you can choose any starting vector
-    x_init = np.zeros(len(b))
-    x = jacobi(A, b, x_init)
+    x = jacobi(A, b)
 
     if x is not None:
         print("x:", x)
