@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def dominantify(mat, res):
     """ Makes the matrix diagonally dominant, if possible.
     :param mat:         The matrix.
@@ -33,7 +34,7 @@ def dominantify(mat, res):
     temp_res = np.array(res)
 
     for i in range(len(mat)):
-        # place the i'th row in the row where the max will be on the pivot
+        # place the ith row in the row where the max will be on the pivot
         mat[row_max[i]] = np.array(temp[i])
         # adjust the b array accordingly
         res[row_max[i]] = temp_res[i]

@@ -31,6 +31,3 @@ venv.bak/
 .dmypy.json
 dmypy.json
 .DS_Store
-
-# pycharm
-.idea
