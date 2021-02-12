@@ -40,10 +40,13 @@ def dominantify(mat, res):
 
     return True
 
-
-if __name__ == "__main__":
-    mat = np.array([[-1., -1., 2.], [2, -1, 1], [2, -4, 1]])
-    res = np.array([1, 4, -2])
-    dominantify(mat, res)
-    print(mat)
-    print(res)
+def check_epsilon(xr,xr_1,tol):
+    """
+    Check_epsilon will check if the absolute value for each variable
+    in solution substracted from the next solution is lower than the given
+    epsilon, it will return false.
+    """
+    for x in range(0, len(xr)):
+        if abs(xr_1[x] - xr[x]) < tol:
+            return False
+    return True

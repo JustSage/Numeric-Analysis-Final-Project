@@ -1,6 +1,5 @@
 import numpy
 
-
 def n_point_double_integral(f, a, b, c, d, n=2):
     """double integral using n-point gauss method
     
