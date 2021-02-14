@@ -5,6 +5,8 @@ def dominantify(mat, res, second=False):
     """ Makes the matrix diagonally dominant, if possible.
     :param mat:         The matrix.
     :param res:         The b component of Ax=b
+    :param second:      A flag for checking if it is attempting a second
+run with the transposed matrix, for column shifts instead of rows.
     :return:            True if it succeeded, false otherwise.
     """
     row_max = [-1 for i in range(len(mat))]
