@@ -21,17 +21,20 @@ def gauss_seidel(mat, res, x=None):
         row = ["{0:3g}*x{1}".format(mat[i, j], j + 1) for j in range(mat.shape[1])]
         print("[{0}] = [{1:3g}]".format(" + ".join(row), res[i]))
 
-    for it_count in range(1, ITERATION_LIMIT):
-        x_new = np.zeros_like(x)
-        print("Iteration {0}: {1}".format(it_count, x))
-        for i in range(mat.shape[0]):
-            s1 = np.dot(mat[i, :i], x_new[:i])
-            s2 = np.dot(mat[i, i + 1:], x[i + 1:])
-            x_new[i] = (res[i] - s1 - s2) / mat[i, i]
+    for iterations in range(ITERATION_LIMIT):
+        print("Iteration {0}: guess = {1}".format(iterations, x))
+        x_new = np.array(x)
+        for j in range(x.shape[0]):
+            temp = 0
+            for i in range(x.shape[0]):
+                if i != j:
+                    temp += mat[j][i] * x_new[i]
+            x_new[j] = (res[j] - temp) / mat[j][j]
         if np.allclose(x, x_new, rtol=epsilon):
-            break
+            print("Total iterations: {0}\nFinal result: {1}".format(iterations, x_new))
+            return x_new
         x = x_new
-    return x
+    return None
 
 
 if __name__ == "__main__":
@@ -41,7 +44,7 @@ if __name__ == "__main__":
 
     if x is not None:
         print("x:", x)
-        print("computed b:", np.dot(A, x))
-        print("real b:", b)
+        print("computed b: A*x = ", np.dot(A, x))
+        print("real b: b = ", b)
     else:
         print("Not eligible")

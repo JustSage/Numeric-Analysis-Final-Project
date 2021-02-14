@@ -8,32 +8,28 @@ epsilon = 1e-8
 def jacobi(mat, res, x=None):
     if not dominantify(mat, res):
         return None
+    # initial guess, if not given, set to 0 vector.
     if x is None:
-        x = np.zeros(len(res))
+        x = np.zeros_like(res)
     print("System of equations:")
     for i in range(mat.shape[0]):
         row = ["{0:3g}*x{1}".format(mat[i, j], j + 1) for j in range(mat.shape[1])]
         print("[{0}] = [{1:3g}]".format(" + ".join(row), res[i]))
 
-    # The diagonal of the matrix
-    diag = np.diag(np.diag(mat))
-    # the matrix with 0 in the diagonal
-    LU = mat - diag
-    # the inverse of the
-    D_inv = np.diag(1 / np.diag(diag))
-    for i in range(ITERATION_LIMIT):
-        # print the current x for this iteration
-        print('iteration {0} starting guess:'.format(i), x)
-
-        # # xr+1 = -Dinv(L+U)xr+Dinv*b
-        x_new = np.dot(D_inv, res - np.dot(LU, x))
-
-        # print the reworked x for this iteration
-        print('iteration {0} new guess:'.format(i), x_new)
-        if np.linalg.norm(x_new - x) < epsilon:
+    for iterations in range(ITERATION_LIMIT):
+        print("Iteration {0}: guess = {1}".format(iterations, x))
+        x_new = np.array(x)
+        for j in range(x.shape[0]):
+            temp = 0
+            for i in range(x.shape[0]):
+                if i != j:
+                    temp += mat[j][i] * x[i]
+            x_new[j] = (res[j] - temp) / mat[j][j]
+        if np.allclose(x, x_new, rtol=epsilon):
+            print("Total iterations: {0}\nFinal result: {1}".format(iterations, x_new))
             return x_new
         x = x_new
-    return x
+    return None
 
 
 if __name__ == "__main__":
