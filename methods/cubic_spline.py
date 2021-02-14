@@ -19,9 +19,8 @@ def natural_cubic_spline(points):
     # the matrix that will hold the stuff for the stuff
     A = np.array([[0. for i in range(len(points))] for i in range(len(points))])
 
-    # no, don't ask me how this thing works, I neither know nor care to know
-
     # unnecessary greek alphabet soup that's forced on people for no reason
+    # Yes, I am bitter.
     lamb = list(0 for i in range(len(h)))
     myu = list(0 for i in range(len(h)))
     for i in range(1, len(h)):
@@ -53,6 +52,26 @@ def natural_cubic_spline(points):
 
     print("The M values are:\n", M)
 
+    print("\nThe spline equation:\n")
+    for i in range(M.shape[0] - 1):
+        # get the variables for the spline
+        M1 = M[i]
+        M2 = M[i+1]
+        f1 = points[i][1]
+        f2 = points[i+1][1]
+        x1 = points[i][0]
+        x2 = points[i+1][0]
+        height = h[i]
+
+        # strings for the three parts of the equation
+        part1 = "(({0}-x)^3 * {1} + (x-{2})*{3}) / (6*{4})".format(x2, M1, x1, M2, height)
+        part2 = "(({0}-x)*{1} + (x-{2})*{3}) / {4}".format(x2, f1, x1, f2, height)
+        part3 = "((({0}-x)*{1} + (x-{2})*{3})/6)*{4}".format(x2, M1, x1, M2, height)
+
+        # print the string of the spline equation
+        print("if x is in ({0}, {1})".format(x1, x2))
+        print("S(x) = \n", part1, " + \n", part2, " + \n", part3, "\n")
+
     def si(x):
         # x is out of the bounds of the points we have (below lower)
         if points[0][0] > x:
@@ -69,14 +88,6 @@ def natural_cubic_spline(points):
                 x1 = points[i][0]
                 x2 = points[i+1][0]
                 height = h[i]
-
-                # strings for the three parts of the equation
-                part1 = "(({0}-x)^3 * {1} + (x-{2})*{3}) / (6*{4})".format(x2, M1, x1, M2, height)
-                part2 = "(({0}-x)*{1} + (x-{2})*{3}) / {4}".format(x2, f1, x1, f2, height)
-                part3 = "((({0}-x)*{1} + (x-{2})*{3})/6)*{4}".format(x2, M1, x1, M2, height)
-
-                # print the string of the spline equation
-                print("Si(x) = \n", part1, " + \n", part2, " + \n", part3)
 
                 # calculate the parts of the equation with the given x
                 p1 = M1*((x2-x)**3) + M2*((x-x1)**3)
