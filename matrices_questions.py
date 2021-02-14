@@ -1,5 +1,5 @@
-from methods.wikipedia_gauss_seidel import gauss_seidel
-from methods.wikipedia_jacobi import jacobi
+from methods.gauss_seidel_method import gauss_seidel
+from methods.jacobi_method import jacobi
 import numpy as np
 
 
