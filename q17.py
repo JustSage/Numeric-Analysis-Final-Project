@@ -15,7 +15,7 @@ ft=lambdify(x,ft)
 
 #1.a)
 print("\nBisection method:")
-bisearch(f,ft, 0, 3)
+bisearch(f, 0, 3)
 print("---------------------------")
 
 #1.b)
@@ -24,12 +24,12 @@ newtsearch(f,ft, 0, 3)
 print("---------------------------")
 
 #2.a)
-print("\nSimpson method:")
-simps(f,0.5,1,6)
+print("\nSimpson method:\n")
+print(simps(f,0.5,1,6))
 print("---------------------------")
 
 #2.b)
-print("\nRomberg method:")
+print("\nRomberg method:\n")
 p_rows = 4
 I = romberg(f, 0.5, 1,4)
 solution = I[p_rows-1, p_rows-1]

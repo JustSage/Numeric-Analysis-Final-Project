@@ -1,6 +1,18 @@
 from sympy import *
 
 def bisection(f, x0, x1):  #uses the method we learned in class
+    """
+
+    :param f: polynomial function
+    :param x0: lower range
+    :param x1: upper range
+    :return:
+    returns a suspected root in the range.
+
+    This function preforms the bisection method we learned in class. it iteratively bisects the range we
+    chose into two parts and then chooses the part in which the function changes sign. it continues like so
+    until the difference between the f(x) and 0 is small enough.
+    """
     iteration = 1
     print('\nBisecting from (%0.1f) to (%0.1f):' % (x0, x1))
     condition = True
@@ -16,8 +28,17 @@ def bisection(f, x0, x1):  #uses the method we learned in class
     print('Root: (%0.8f)' % x2)
     return x2
 
-def bisearch(f,ft, x0, x1):    #goes by steps of 0.1 and checks for sign changed, activates bisection function
-    answers=[]                 #when found.
+def bisearch(f, x0, x1):
+    """
+    :param f: polynomial function
+    :param x0: lower range
+    :param x1: upper range
+    :return: all the roots in the given range
+
+    goes by steps of 0.1 and checks for sign changed, activates bisection function when found.
+    basically splitting our given range into lots of small sub-ranges ro run the bisection function on.
+    """
+    answers=[]
     basecheck=0
     flag=x0
     follow=x0+0.1

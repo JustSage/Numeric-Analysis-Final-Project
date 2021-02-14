@@ -17,5 +17,4 @@ def simps(f,a,b,N=50):
       print('Integral for a step',l,'=',nf)
       l+=1
 
-   
     return 'final result: ' +str(S)
