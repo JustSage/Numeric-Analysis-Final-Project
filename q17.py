@@ -2,6 +2,8 @@
 
 from methods.bisection2 import bisearch
 from methods.newton2 import newtsearch
+from methods.simpson import simps
+from methods.romberg import *
 from math import *
 from sympy import *
 
@@ -11,11 +13,25 @@ ft=f.diff(x)
 f=lambdify(x,f)
 ft=lambdify(x,ft)
 
-#a.1)
+#1.a)
 print("\nBisection method:")
 bisearch(f,ft, 0, 3)
 print("---------------------------")
-#a.2)
+
+#1.b)
 print("\nNewton Raphson method:")
 newtsearch(f,ft, 0, 3)
+print("---------------------------")
+
+#2.a)
+print("\nSimpson method:")
+simps(f,0.5,1,6)
+print("---------------------------")
+
+#2.b)
+print("\nRomberg method:")
+p_rows = 4
+I = romberg(f, 0.5, 1,4)
+solution = I[p_rows-1, p_rows-1]
+print(solution)
 print("---------------------------")
