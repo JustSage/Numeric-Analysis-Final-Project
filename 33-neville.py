@@ -9,21 +9,21 @@ def neville(datax, datay, x):
     Output
       p[0]: the polynomial of degree n
     """
-    n = len(datax)
-    p = n*[0]
-    for k in range(n):
+    n = len(datax)#n is the degree of the polynomial
+    p = n*[0]# creates the zero matrix p
+    for k in range(n):#runs loop from k equals 1 until it reaches end value
         l = k
         for i in range(n-k):
             if k == 0:
                 p[i] = datay[i]
-            else:
+            else:#evaluates each element of the matrix
                 p[i] = ((x-datax[i+k])*p[i]+
                         (datax[i]-x)*p[i+1])/ \
                         (datax[i]-datax[i+k])
                 print("p", l, i, "=", p[i])
                 l += 1
         print("----------")
-    return p[0]
+    return p[0]#result
 #code source:https://github.com/gisalgs/geom/blob/master/neville.py#L23
 
 
