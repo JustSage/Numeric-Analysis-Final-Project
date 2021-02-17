@@ -28,6 +28,3 @@ def neville(datax, datay, x):
 
 
 
-dx=[2,2.25,2.3,2.7]
-dy=[0,0.112463,0.167996,0.222709]
-print("x = ",2.4,"y = ",neville(dx,dy,2.4))
